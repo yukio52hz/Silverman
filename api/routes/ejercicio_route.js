@@ -5,10 +5,10 @@ const Ejercicio = require('../models/ejercicios_model');
 const router = new express.Router();
 
 router.post('/registrar-ejercicio', (req, res) => {
-
+    let ejercicio = JSON.parse(req.body.ejercicio)
     let new_ejercicio = new Ejercicio({
-        'nombre': req.body.nombre,
-        'zona': req.body.zona,
+        'nombre': ejercicio.nombre,
+        'zona': ejercicio.zona,
         'estado': 'Activo'
     });
     new_ejercicio.save((err, ejer) => {
@@ -27,7 +27,7 @@ router.post('/registrar-ejercicio', (req, res) => {
 });
 
 router.get('/listar-ejercicios', (req, res) => {
-    Ejercicio.find((err, lista_ejercicios) => {
+    Ejercicio.find((err, lista) => {
         if (err) {
             res.json({
                 'msj': 'No se puede registra ejercicios',
@@ -36,7 +36,7 @@ router.get('/listar-ejercicios', (req, res) => {
         } else {
             res.json({
                 'msj': 'Ejercicios listados',
-                lista_ejercicios
+                lista
             });
         }
 
