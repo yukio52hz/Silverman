@@ -9,10 +9,9 @@ router.post('/registrar-rutina', (req, res) => {
     let nueva_rutina = new Rutina({
         'creacion': rutina.creacion,
         'vencimiento': rutina.vencimiento,
-        'lista_ejercicio': rutina.lista_ejercicio
     });
-    rutina.lista_ejercicio.forEach(Ejercicio => {
-        nueva_rutina.ejercicio.push(Ejercicio);
+    rutina.lista_ejercicio.forEach(ejercicio => {
+        nueva_rutina.ejercicio.push(ejercicio._id);
 
     });
     nueva_rutina.save((err, rutina) => {
