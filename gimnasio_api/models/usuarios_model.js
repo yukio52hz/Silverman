@@ -11,4 +11,4 @@ const schema_usuario = new mongoose.Schema({
     'lista_rutinas': { type: Array, require: false, unique: false },
 });
 
-module.exports = mongoose.model('Usuario', schema_usuario, 'usuario');
+module.exports = mongoose.model('Usuarios', schema_usuario, 'usuario');

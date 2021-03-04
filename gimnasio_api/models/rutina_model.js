@@ -12,4 +12,4 @@ const schema_rutina = new mongoose.Schema({
         //de esta manera podemos referenciar los ejercicios
 });
 
-module.exports = mongoose.model('Rutina', schema_rutina, 'rutina');
+module.exports = mongoose.model('Rutina', schema_rutina, 'rutinas');
