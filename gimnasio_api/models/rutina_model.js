@@ -7,7 +7,7 @@ const schema_rutina = new mongoose.Schema({
     'vencimiento': { type: Date, require: true, unique: false },
     'lista_ejercicios': [{
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Ejercicio'
+            ref: 'Ejercicios'
         }]
         //de esta manera podemos referenciar los ejercicios
 });

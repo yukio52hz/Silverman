@@ -28,4 +28,19 @@ router.post('/registrar-rutina', (req, res) => {
         }
     });
 });
+router.get('/listar-rutinas', (req, res) => {
+    Rutina.find.populate('ejercicios').exec((err, lista) => {
+        if (err) {
+            res.json({
+                msj: 'La rutina no se pudo listar',
+                err
+            });
+        } else {
+            res.json({
+                msj: 'Rutina listadas',
+                lista
+            });
+        }
+    })
+})
 module.exports = router;
