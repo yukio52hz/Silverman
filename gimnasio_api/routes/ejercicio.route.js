@@ -6,12 +6,12 @@ const Ejercicio = require('../models/ejercicios.model');
 
 router.post('/registrar-ejercicio', (req, res) => {
     let obj_ejercicio = JSON.parse(req.body.obj);
-    let nuevo_ejercicio = new Ejercicio({
+    let ejercicio = new Ejercicio({
         nombre: obj_ejercicio.nombre,
         zona: obj_ejercicio.zona,
         estado: 'Activo'
     });
-    nuevo_ejercicio.save((err, ejercicio_bd) => {
+    ejercicio.save((err, ejercicio_bd) => {
         if (err) {
             res.json({
                 msj: 'El ejercicio no se pudo registrar',
