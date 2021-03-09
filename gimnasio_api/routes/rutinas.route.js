@@ -10,11 +10,12 @@ router.post('/registrar-rutina', (req, res) => {
         creacion: rutina.creacion,
         vencimiento: rutina.vencimiento
     });
-
+    //resive el objeto rutina
+    //luego recorre la lista y guarda los _id de los ejercicios
     rutina.lista_ejercicios.forEach(ejercicio => {
         nueva_rutina.ejercicios.push(ejercicio._id);
     });
-
+    //luego guarda la rutina normalmente
     nueva_rutina.save((err, rutina) => {
         if (err) {
             res.json({
